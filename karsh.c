@@ -18,5 +18,48 @@ int main()
 		printf("karsh>");
 		fflush(stdout);
 		
+		//To read input
+		if(fgets(input,MAX_LINE, stdin)==NULL)
+		{
+			break;
+		}
+		
+		//To Remove newline
+		input[strcmp(input,"\n")]==0;
+
+		//Exit Builtin
+		if(strcmp(input."exit")==0)
+			printf("Exiting karsh ....\n");
+		break;
 	}
+	//parse input into arguments
+	int i = 0;
+	args[i] = strtok(input, " ");
+	while(args[i] != NULL)
+	{
+		i++;
+		args[i]= strtok(NULL, " ");
+
+	}
+	//Fork Process
+	pid_t pid = fork();
+
+	if(pid == 0 )
+	{
+		//child process
+		execvp(args[0],args);
+		perror("exex failed");
+		exit(1);
+
+	}
+	else if (pid > 0)
+	{	
+		//for parent process
+		wait(NULL);
+	}else
+	{
+		perror("fork failed");
+
+	}
+	return 0;
 }

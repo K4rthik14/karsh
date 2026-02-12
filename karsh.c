@@ -9,7 +9,7 @@
 
 int main()
 {
-	char inputs[MAX_LINE];
+	char input[MAX_LINE];
 	char *args[MAX_ARGS];
 
 	while(1)
@@ -25,12 +25,12 @@ int main()
 		}
 		
 		//To Remove newline
-		input[strcmp(input,"\n")]==0;
+		input[strcspn(input,"\n")]==0;
 
 		//Exit Builtin
-		if(strcmp(input."exit")==0)
+		if(strcmp(input,"exit")==0)
 			printf("Exiting karsh ....\n");
-		break;
+			break;
 	}
 	//parse input into arguments
 	int i = 0;
@@ -48,7 +48,7 @@ int main()
 	{
 		//child process
 		execvp(args[0],args);
-		perror("exex failed");
+		perror("exec failed");
 		exit(1);
 
 	}

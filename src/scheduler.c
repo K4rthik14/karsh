@@ -2,7 +2,7 @@
 #include <string.h>
 #include "scheduler.h"
 
-void schedule_simulator(char *type) {
+void scheduler_simulator(char *type) {
 
     Process p[] = {
         {"P1", 4},
